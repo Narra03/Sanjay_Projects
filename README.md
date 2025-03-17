@@ -1,127 +1,50 @@
-# Global Air Pollution Data Analysis
+# Credit Card Default Prediction
+## Project Overview
+This project focuses on predicting the likelihood of credit card clients defaulting on payments based on historical data. Using machine learning techniques, it evaluates different classification models and visualizes the results. The dataset used is from the UCI Machine Learning Repository and contains information about credit card clients, including their demographic and financial data.
 
-## Overview
+## Libraries Used
+The following Python libraries are used in this project:
 
-Our project aims to enhance the General Air Quality Index (GAQI) by
-analyzing vast air quality data from over 170 nations and 300 cities.
-Focusing on pollutants like PM2.5, ozone, carbon monoxide, and nitrogen
-dioxide, we seek to understand regional air quality disparities.
-Leveraging Apache Spark, PySpark, and NoSQL databases, our approach
-enables comprehensive data mining and predictive modeling. By
-forecasting pollution patterns, we empower environmental policy-making
-and public awareness. Through phases including data acquisition,
-preprocessing, analysis, and modeling, our five-week project ensures
-accurate GAQI insights. Ultimately, we strive to aid global efforts in
-mitigating air pollution\'s adverse effects, promoting a healthier
-future.
+pandas for data manipulation
+numpy for numerical operations
+matplotlib and seaborn for data visualization
+sklearn for machine learning models and metrics
+imblearn for handling class imbalance
+plotly for interactive visualizations
+kneed for identifying the optimal number of clusters in KMeans
 
-## DATASET USED:
+## Project Steps
+* Importing Necessary Libraries: Various libraries for data processing, model building, and evaluation are imported.
+* Downloading the Dataset: The dataset default_of_credit_card_clients is fetched from the UCI Machine Learning Repository.
+* Data Preprocessing: Features and target variables are separated, and preprocessing steps are performed.
+* Model Building: Different classifiers such as Decision Trees, Random Forests, Support Vector Classifiers, K-Nearest Neighbors, Naive Bayes, and Gradient Boosting are trained and evaluated.
+* Model Evaluation: Performance is evaluated using metrics like confusion matrix, classification report, ROC curve, and AUC score.
+* Visualizations: Interactive plots are generated to visualize the data distribution, model performance, and other insights.
+* Key Features
+* Data Processing: Feature scaling using MinMaxScaler and StandardScaler.
+* Model Training: Multiple classification algorithms are implemented to predict credit card defaults.
+* Class Imbalance Handling: SMOTE (Synthetic Minority Over-sampling Technique) is used to handle class imbalance.
+* Performance Metrics: Detailed evaluation using metrics such as confusion matrix, ROC curve, AUC score, and classification report.
+* Visualization: Interactive plots and graphs to better understand model performance and data trends.
+## Dataset
+The dataset used in this project is the Default of Credit Card Clients Dataset from the UCI Machine Learning Repository. It contains information on credit card clients, such as:
 
-For this project, we utilize the [Global Air Pollution
-dataset](https://www.kaggle.com/datasets/sazidthe1/global-air-pollution-data/data)
-available on Kaggle
+* Demographics (age, gender, education, marital status)
+* Credit history (history of payment, credit utilization)
+* Target variable indicating whether the client defaulted or not
+## Running the Project
+* Install the required libraries using pip:
+* Copy code
+pip install ucimlrepo pandas numpy matplotlib seaborn scikit-learn imbalanced-learn plotly kneed
+Download the dataset and create a dataframe:
 
-## Installation and Setup
+* python
+Copy code
+from ucimlrepo import fetch_ucirepo
+default_of_credit_card_clients = fetch_ucirepo(id=350)
+X = default_of_credit_card_clients.data.features
+y = default_of_credit_card_clients.data.targets
+Follow the steps in the notebook to preprocess the data, train models, and evaluate performance.
 
-1. Clone the repository:
-
-bash
-
-git clone \<repository_url\>
-
-cd \<repository_name\>
-
-2. Install dependencies:
-
-bash
-
-pip install -r requirements.txt
-
-3. Databricks Setup:
-
-\- This project can be run on Databricks.
-
-\- Ensure Databricks filesystem (DBFS) is accessible.
-
-\- Create a Databricks cluster to execute the code.
-
-\- Upload the repository to Databricks and access it from the cluster.
-
-4\. Running on Databricks:
-
-\- Create a Databricks cluster with appropriate configurations.
-
-\- Upload the repository to Databricks.
-
-\- Access the notebook or script containing the provided code snippets.
-
-\- Execute the code in the Databricks environment.
-
-## Code Structure
-
-\- global_air_pollution_analysis.ipynb: Main Python script
-containing the code for data analysis, preprocessing, model training,
-and evaluation.
-
-## Code Overview
-
-1\. Data Loading:
-
-\- The script loads the global air pollution data from the file
-global_air_pollution_data.csv into a Pandas DataFrame.
-
-\- DBFS is utilized for accessing files (dbfs:/FileStore).
-
-2\. Data Preprocessing:
-
-\- Various data preprocessing steps are performed, including handling
-missing values, renaming columns, converting data types, and creating
-new features such as the Global Air Quality Index (GAQI) and GAQI
-category.
-
-3\. Exploratory Data Analysis (EDA):
-
-\- EDA is conducted using visualizations such as heatmaps and boxplots
-to understand the relationships between variables, identify trends,
-distributions, and potential outliers. - Geospatial analysis is
-conducted to visualize air quality across different regions using
-GeoPandas. The distribution of AQI values by category is plotted on a
-world map. Additional analysis includes plotting distributions of AQI
-values, counting occurrences of AQI categories, and determining average
-AQI values by country and continent.
-
-4\. Feature Selection:
-
-\- Feature selection techniques like variance thresholding and
-identifying quasi-constant features are applied to remove irrelevant or
-redundant features, improving model efficiency and performance.
-
-5\. Model Training and Evaluation:
-
-\- Several machine learning models including Linear Regression, Decision
-Trees, Random Forest are trained and evaluated for predicting GAQI
-categories. Model performance metrics such as Mean Absolute Error (MAE),
-Mean Squared Error (MSE), Root Mean Squared Error (RMSE), and Accuracy
-are calculated to assess model efficacy.
-
-## References
-
-\- \[Pandas Documentation\](https://pandas.pydata.org/docs/)
-
-\- \[NumPy Documentation\](https://numpy.org/doc/)
-
-\- \[Matplotlib Documentation\](https://matplotlib.org/contents.html)
-
-\- \[Seaborn Documentation\](https://seaborn.pydata.org/tutorial.html)
-
-\- \[Scikit-learn
-Documentation\](https://scikit-learn.org/stable/user_guide.html)
-
-\- \[XGBoost Documentation\](https://xgboost.readthedocs.io/en/latest/)
-
-\- \[PyCountry-Convert
-Documentation\](https://pypi.org/project/pycountry-convert/)
-
-\- \[GeoPandas Documentation\](https://geopandas.org/)
-
-\- \[Altair Documentation\](https://altair-viz.github.io/)
+## Conclusion
+This project provides a detailed analysis and predictive modeling approach for credit card default prediction. The various classifiers and techniques used here can help in understanding patterns in financial data and making informed predictions for future credit card clients.
